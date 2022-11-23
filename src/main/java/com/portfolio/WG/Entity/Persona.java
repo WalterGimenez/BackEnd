@@ -25,12 +25,20 @@ public class Persona {
     @Size(min= 1, max = 50, message = "debe agregar entre 1 y 50 caracteres")
     private String lastName;
      
-    @NotNull
-    @Size(min= 1, max = 50, message = "debe agregar entre 1 y 50 caracteres") 
-    private String image;
+    @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
+    private String tit1;
     
-    //por ahora le digo nulo
-    private String aboutMe; 
+    @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
+    private String tit2;
+    //@NotNull
+    //@Size(min= 1, max = 50, message = "debe agregar entre 1 y 50 caracteres") 
+    //private String image;
+    
+    @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
+    private String aboutMe;
+    
+    @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
+    private String aboutMe2;
     
     
 }
