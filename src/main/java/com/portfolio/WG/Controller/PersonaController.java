@@ -39,16 +39,19 @@ public class PersonaController {
     
     @PutMapping("personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
-                               @RequestParam("name") String newName,
-                               @RequestParam("lastName") String newLast,                          
-                               @RequestParam("image") String newImg,
-                               @RequestParam("aboutMe") String newAM){
+                            @RequestParam("name") String newName,
+                            @RequestParam("lastName") String newLast,                          
+                            @RequestParam("aboutMe") String newAM,
+                            @RequestParam("aboutMe2") String newAM2,
+                            @RequestParam("titulo1") String newT1,
+                            @RequestParam("titulo2") String newT2){
         Persona personaNew = ipersonaService.findPersona(id);
         personaNew.setName(newName);
         personaNew.setLastName(newLast);
-        personaNew.setImage(newImg);
         personaNew.setAboutMe(newAM);
-        
+        personaNew.setAboutMe2(newAM2);
+        personaNew.setTit1(newT1);
+        personaNew.setTit2(newT2);
         ipersonaService.savePersona(personaNew);
         return personaNew;
     }
