@@ -11,11 +11,13 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class OtherPersona {
+public class Hardsoft { 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     
-    @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
-    private String linkOther;
+    @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
+    private String name;
+        
+    private Long perc;
 }

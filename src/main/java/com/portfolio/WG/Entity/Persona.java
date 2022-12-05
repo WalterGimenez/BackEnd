@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     
     @NotNull
     @Size(min= 1, max = 50, message = "debe agregar entre 1 y 50 caracteres")
@@ -23,22 +23,27 @@ public class Persona {
     
     @NotNull
     @Size(min= 1, max = 50, message = "debe agregar entre 1 y 50 caracteres")
-    private String lastName;
+    private String lastname;
+    
+    @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
+    private String about1;
+    
+    @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
+    private String about2;
      
     @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
     private String tit1;
     
     @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
     private String tit2;
-    //@NotNull
-    //@Size(min= 1, max = 50, message = "debe agregar entre 1 y 50 caracteres") 
-    //private String image;
     
     @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
-    private String aboutMe;
+    private String banner;
     
     @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
-    private String aboutMe2;
+    private String link;
+    
+    
     
     
 }

@@ -16,12 +16,15 @@ public class Proyects {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     
+    @Size(min= 1, max = 2555, message = "debe agregar entre 1 y 2555 caracteres")
+    private String link;
+    
     @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
-    private String nameP;
+    private String name;
     
     @Size(min= 1, max = 255, message = "debe agregar entre 1 y 2555 caracteres")
-    private String descriptionP;
+    private String descrip;
     
-    @Size(min= 1, max = 2555, message = "debe agregar entre 1 y 2555 caracteres")
-    private String linkP;
+    @Size(min= 1, max = 255, message = "debe agregar entre 1 y 2555 caracteres")
+    private String linkproy;
 }

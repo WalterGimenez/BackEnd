@@ -17,14 +17,14 @@ public class Education {
     private Long Id;
     
     @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
-    private String nameEd;
+    private String name;
     
     @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
-    private String startEndEd;
+    private String startend;
     
     @Size(min= 1, max = 255, message = "debe agregar entre 1 y 2555 caracteres")
-    private String descriptionEd;
+    private String descrip;
     
     @Size(min= 1, max = 2555, message = "debe agregar entre 1 y 2555 caracteres")
-    private String linked;
+    private String link;
 }

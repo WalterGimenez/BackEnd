@@ -17,14 +17,17 @@ public class Experience {
     private Long Id;
     
     @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
-    private String nameExp;
+    private String name;
     
     @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
-    private String startEndEx;
+    private String startend;
     
     @Size(min= 1, max = 255, message = "debe agregar entre 1 y 2555 caracteres")
-    private String linkEx;
+    private String link;
     
     @Size(min= 1, max = 2555, message = "debe agregar entre 1 y 2555 caracteres")
-    private String puesto;
+    private String job;
+    
+    @Size(min= 1, max = 2555, message = "debe agregar entre 1 y 2555 caracteres")
+    private String descrip;
 }

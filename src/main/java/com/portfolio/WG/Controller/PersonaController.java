@@ -40,18 +40,22 @@ public class PersonaController {
     @PutMapping("personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
                             @RequestParam("name") String newName,
-                            @RequestParam("lastName") String newLast,                          
-                            @RequestParam("aboutMe") String newAM,
-                            @RequestParam("aboutMe2") String newAM2,
-                            @RequestParam("titulo1") String newT1,
-                            @RequestParam("titulo2") String newT2){
+                            @RequestParam("lastname") String newLast,                          
+                            @RequestParam("about1") String newAM,
+                            @RequestParam("about2") String newAM2,
+                            @RequestParam("tit1") String newT1,
+                            @RequestParam("tit2") String newT2,
+                            @RequestParam("banner") String newBan,
+                            @RequestParam("link") String newLink){
         Persona personaNew = ipersonaService.findPersona(id);
         personaNew.setName(newName);
-        personaNew.setLastName(newLast);
-        personaNew.setAboutMe(newAM);
-        personaNew.setAboutMe2(newAM2);
+        personaNew.setLastname(newLast);
+        personaNew.setAbout1(newAM);
+        personaNew.setAbout2(newAM2);
         personaNew.setTit1(newT1);
         personaNew.setTit2(newT2);
+        personaNew.setBanner (newBan);
+        personaNew.setLink(newLink);
         ipersonaService.savePersona(personaNew);
         return personaNew;
     }
@@ -59,6 +63,6 @@ public class PersonaController {
     @GetMapping("personas/informe")
     public Persona findPersona() //(Long id)
     {
-        return ipersonaService.findPersona((long)1);   //(id);
+        return ipersonaService.findPersona((long)1);   //tengo un solo id;
     }
 }
