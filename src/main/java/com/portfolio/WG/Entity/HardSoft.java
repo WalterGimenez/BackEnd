@@ -14,10 +14,14 @@ import lombok.Setter;
 public class Hardsoft { 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private int Id;
     
     @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
     private String name;
         
-    private Long perc;
+    private int perc;
+    
+    public Hardsoft(){
+        
+    }
 }

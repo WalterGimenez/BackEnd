@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private int Id;
     
     @Size(min= 1, max = 100, message = "debe agregar entre 1 y 100 caracteres")
     private String name;
@@ -27,4 +27,7 @@ public class Education {
     
     @Size(min= 1, max = 2555, message = "debe agregar entre 1 y 2555 caracteres")
     private String link;
+    
+    public Education(){
+    }
 }

@@ -43,7 +43,9 @@ public class Persona {
     @Size(min=1, max = 255,message = "debe agregar entre 1 y 255 caracteres" )
     private String link;
     
-    
+    public Persona(){
+        
+    }
     
     
 }
