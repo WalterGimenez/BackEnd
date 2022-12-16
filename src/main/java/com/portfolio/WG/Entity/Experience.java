@@ -34,5 +34,14 @@ public class Experience {
     public Experience(){
         
     }
-            
+
+    public Experience(String name, String startend, String link, String job, String descrip) {
+        this.name = name;
+        this.startend = startend;
+        this.link = link;
+        this.job = job;
+        this.descrip = descrip;
+    }
+    
+    
 }

@@ -6,13 +6,13 @@ import lombok.Setter;
 
 @Getter @Setter
 public class Message {
-    private String menssage;
+    private String message;
 
     public Message() {
     }
 
     public Message(String menssage) {
-        this.menssage = menssage;
+        this.message = menssage;
     }  
     
 }

@@ -29,8 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auth")
-@CrossOrigin
+@RequestMapping("**")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
     @Autowired
@@ -44,7 +44,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
-    @PostMapping("/nuevo")
+    @PostMapping("/auth/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NewUser newUser, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Message("Campos mal puestos o email inválido"), HttpStatus.BAD_REQUEST);
@@ -62,7 +62,7 @@ public class AuthController {
                 passordEncoder.encode(newUser.getPassword()));
 
         Set<Rol> roles = new HashSet<>();
-        roles.add(rolService.getByRolName(RolName.ROL_USER).get());
+        roles.add(rolService.getByRolName(RolName.ROLE_USER).get());
 
         if (newUser.getRoles().contains("admin")) {
             roles.add(rolService.getByRolName(RolName.ROLE_ADMIN).get());
@@ -74,7 +74,7 @@ public class AuthController {
         return new ResponseEntity(new Message("Usuario guardado con éxito"), HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
+    @PostMapping("/auth/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody UserLogin userLogin, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Message("Campos mal puestos"), HttpStatus.BAD_REQUEST);
