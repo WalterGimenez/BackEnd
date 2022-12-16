@@ -30,4 +30,12 @@ public class Education {
     
     public Education(){
     }
+
+    public Education(String name, String startend, String descrip, String link) {
+        this.name = name;
+        this.startend = startend;
+        this.descrip = descrip;
+        this.link = link;
+    }
+    
 }
