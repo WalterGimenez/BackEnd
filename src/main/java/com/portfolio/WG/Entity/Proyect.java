@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Proyects {
+public class Proyect {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
@@ -28,11 +28,11 @@ public class Proyects {
     @Size(min= 1, max = 255, message = "debe agregar entre 1 y 2555 caracteres")
     private String linkproy;
     
-    public Proyects(){
+    public Proyect(){
         
     }
 
-    public Proyects(String link, String name, String descrip, String linkproy) {
+    public Proyect(String link, String name, String descrip, String linkproy) {
         this.link = link;
         this.name = name;
         this.descrip = descrip;
