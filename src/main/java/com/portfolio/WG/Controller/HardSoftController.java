@@ -1,10 +1,10 @@
 
 package com.portfolio.WG.Controller;
 
-import com.portfolio.WG.Dto.DtoEducation;
-import com.portfolio.WG.Entity.Education;
+import com.portfolio.WG.Dto.DtoHardSoft;
+import com.portfolio.WG.Entity.HardSoft;
 import com.portfolio.WG.Security.Controller.Message;
-import com.portfolio.WG.Service.ServiceEducation;
+import com.portfolio.WG.Service.ServiceHardSoft;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,76 +21,76 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/education")
-public class EducationController {
-     @Autowired ServiceEducation serviceEducation;
+@RequestMapping("/hys")
+public class HardSoftController {
+    @Autowired ServiceHardSoft serviceHardSoft;
     
     @GetMapping("/list")
-    public ResponseEntity<List<Education>> list(){
-        List<Education> list = serviceEducation.list();
+    public ResponseEntity<List<HardSoft>> list(){
+        List<HardSoft> list = serviceHardSoft.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Education> getById(@PathVariable("id")int id){
-        if(!serviceEducation.existsById(id)){
+    public ResponseEntity<HardSoft> getById(@PathVariable("id")int id){
+        if(!serviceHardSoft.existsById(id)){
             return new ResponseEntity(new Message("No existe el ID"), HttpStatus.BAD_REQUEST);
         }
         
-        Education education = serviceEducation.getOne(id).get();
-        return new ResponseEntity(education, HttpStatus.OK);
+        HardSoft hardSoft = serviceHardSoft.getOne(id).get();
+        return new ResponseEntity(hardSoft, HttpStatus.OK);
     }
     
-     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody DtoEducation dtoEducation){
-        if(StringUtils.isBlank(dtoEducation.getName())){
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody DtoHardSoft dtoHardSoft){
+        if(StringUtils.isBlank(dtoHardSoft.getName())){
             return new ResponseEntity(new Message("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if(serviceEducation.existsByName(dtoEducation.getName())){
+        if(serviceHardSoft.existsByName(dtoHardSoft.getName())){
             return new ResponseEntity(new Message("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
         
-        Education education = new Education(
-                dtoEducation.getName(), dtoEducation.getStartend(),dtoEducation.getDescrip(), dtoEducation.getLink()
+        HardSoft hardSoft = new HardSoft(
+                dtoHardSoft.getName(), dtoHardSoft.getPerc()
             );
-        serviceEducation.save(education);
-        return new ResponseEntity(new Message("Educacion creada"), HttpStatus.OK);
+        serviceHardSoft.save(hardSoft);
+        return new ResponseEntity(new Message("HardSoft creado"), HttpStatus.OK);
                 
     }
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoEducation dtoEducation){
-        if(!serviceEducation.existsById(id)){
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoHardSoft dtoHardSoft){
+        if(!serviceHardSoft.existsById(id)){
             return new ResponseEntity(new Message("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        if(serviceEducation.existsByName(dtoEducation.getName()) && serviceEducation.getByName(dtoEducation.getName()).get().getId() != id){
+        if(serviceHardSoft.existsByName(dtoHardSoft.getName()) && serviceHardSoft.getByName(dtoHardSoft.getName()).get().getId() != id){
             return new ResponseEntity(new Message("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
-        if(StringUtils.isBlank(dtoEducation.getName())){
+        if(StringUtils.isBlank(dtoHardSoft.getName())){
             return new ResponseEntity(new Message("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
         
-        Education education = serviceEducation.getOne(id).get();
+        HardSoft hardSoft = serviceHardSoft.getOne(id).get();
         
-        education.setName(dtoEducation.getName());
-        education.setStartend(dtoEducation.getStartend());
-        education.setDescrip(dtoEducation.getDescrip());
-        education.setLink(dtoEducation.getLink());
-        serviceEducation.save(education);
+        hardSoft.setName(dtoHardSoft.getName());
+        hardSoft.setPerc(dtoHardSoft.getPerc());
+        serviceHardSoft.save(hardSoft);
         
-        return new ResponseEntity(new Message("Educacion actualizada"), HttpStatus.OK);
+        return new ResponseEntity(new Message("HardSoft actualizado"), HttpStatus.OK);
     }
+    
     
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
-        if(!serviceEducation.existsById(id)){
+        if(!serviceHardSoft.existsById(id)){
             return new ResponseEntity(new Message("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        serviceEducation.delete(id);
-        return new ResponseEntity(new Message("Educacion eliminada"), HttpStatus.OK);
+        serviceHardSoft.delete(id);
+        return new ResponseEntity(new Message("HardSoft eliminado"), HttpStatus.OK);
     }
     
    
+    
+    
 }

@@ -31,4 +31,13 @@ public class Proyects {
     public Proyects(){
         
     }
+
+    public Proyects(String link, String name, String descrip, String linkproy) {
+        this.link = link;
+        this.name = name;
+        this.descrip = descrip;
+        this.linkproy = linkproy;
+    }
+    
+    
 }
