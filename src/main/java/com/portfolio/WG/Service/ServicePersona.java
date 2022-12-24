@@ -29,6 +29,9 @@ public class ServicePersona implements IPersonaService {
         ipersonaRepository.deleteById(id);
     }
 
+    public boolean existsById(long id){
+        return ipersonaRepository.existsById(id);
+    }
     @Override
     public Persona findPersona(Long id) {
         Persona persona = ipersonaRepository.findById(id).orElse(null);

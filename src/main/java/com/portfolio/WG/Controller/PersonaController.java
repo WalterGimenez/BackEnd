@@ -1,6 +1,7 @@
 
 package com.portfolio.WG.Controller;
 
+
 import com.portfolio.WG.Entity.Persona;
 import com.portfolio.WG.Interface.IPersonaService;
 import java.util.List;
@@ -64,9 +65,13 @@ public class PersonaController {
         return personaNew;
     }
     
+    
+    
+    
     @GetMapping("personas/informe")
     public Persona findPersona() //(Long id)
     {
         return ipersonaService.findPersona((long)1);   //tengo un solo id;
     }
+    
 }
