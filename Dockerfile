@@ -7,8 +7,11 @@
 #EXPOSE 8080
 #CMD ["java", "-jar", "target/my-app.jar"]
 
-FROM alpine:latest
-COPY target/WG-0.0.1-SNAPSHOT.jar /app.jar
+#FROM alpine:latest
+FROM openjdk:17
+#COPY target/WG-0.0.1-SNAPSHOT.jar /app.jar
+ADD target/WG-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-CMD ["java", "-jar", "target/my-app.jar"]
+#CMD ["java", "-jar", "target/my-app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 
