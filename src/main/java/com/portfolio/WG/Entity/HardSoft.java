@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class HardSoft { 
+public class Hardsoft { 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
@@ -21,11 +21,11 @@ public class HardSoft {
         
     private int perc;
     
-    public HardSoft(){
+    public Hardsoft(){
         
     }
 
-    public HardSoft(String name, int perc) {
+    public Hardsoft(String name, int perc) {
         this.name = name;
         this.perc = perc;
     }
