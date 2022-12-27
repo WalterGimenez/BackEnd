@@ -69,12 +69,8 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
-        </dependency>
-
-                
-                
+        </dependency>             
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -91,5 +87,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
