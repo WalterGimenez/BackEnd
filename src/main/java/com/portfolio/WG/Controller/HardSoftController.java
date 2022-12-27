@@ -22,7 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://front-wgimenez.web.app")
 @RequestMapping("/hys")
 public class HardSoftController {
     @Autowired ServiceHardSoft serviceHardSoft;
