@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+
 @Entity
 public class Proyect {
     @Id
@@ -36,6 +36,46 @@ public class Proyect {
         this.link = link;
         this.name = name;
         this.descrip = descrip;
+        this.linkproy = linkproy;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescrip() {
+        return descrip;
+    }
+
+    public void setDescrip(String descrip) {
+        this.descrip = descrip;
+    }
+
+    public String getLinkproy() {
+        return linkproy;
+    }
+
+    public void setLinkproy(String linkproy) {
         this.linkproy = linkproy;
     }
     
