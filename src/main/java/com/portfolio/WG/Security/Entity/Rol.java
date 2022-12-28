@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter
+
 public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,22 @@ public class Rol {
     }
 
     public Rol(RolName rolName) {
+        this.rolName = rolName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public RolName getRolName() {
+        return rolName;
+    }
+
+    public void setRolName(RolName rolName) {
         this.rolName = rolName;
     }
     
