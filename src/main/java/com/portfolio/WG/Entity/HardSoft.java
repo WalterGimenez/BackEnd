@@ -6,13 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
-
 
 @Entity
-public class Hardsoft { 
-    @Id
+public class Hardsoft {
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     
@@ -53,6 +50,4 @@ public class Hardsoft {
     public void setPerc(int perc) {
         this.perc = perc;
     }
-    
-    
 }
