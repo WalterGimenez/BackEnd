@@ -8,7 +8,8 @@
 #CMD ["java", "-jar", "target/my-app.jar"]
 
 #FROM alpine:latest
-FROM openjdk:11-jdk-alpine
+FROM amazoncorretto:11-alpine-jdk
+MAINTAINER emaaristimuno
 #COPY target/WG-0.0.1-SNAPSHOT.jar /app.jar
 ADD target/WG-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
