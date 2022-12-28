@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Hardsoft {
+public class SoftHard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
@@ -18,11 +18,11 @@ public class Hardsoft {
         
     private int perc;
     
-    public Hardsoft(){
+    public SoftHard(){
         
     }
 
-    public Hardsoft(String name, int perc) {
+    public SoftHard(String name, int perc) {
         this.name = name;
         this.perc = perc;
     }

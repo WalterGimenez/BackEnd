@@ -2,7 +2,7 @@
 package com.portfolio.WG.Controller;
 
 import com.portfolio.WG.Dto.DtoHardSoft;
-import com.portfolio.WG.Entity.Hardsoft;
+import com.portfolio.WG.Entity.SoftHard;
 import com.portfolio.WG.Security.Controller.Message;
 import com.portfolio.WG.Service.ServiceHardSoft;
 import java.util.List;
@@ -29,17 +29,17 @@ public class HardsoftController {
     @Autowired ServiceHardSoft serviceHardSoft;
     
     @GetMapping("/list")
-    public ResponseEntity<List<Hardsoft>> list(){
-        List<Hardsoft> list = serviceHardSoft.list();
+    public ResponseEntity<List<SoftHard>> list(){
+        List<SoftHard> list = serviceHardSoft.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Hardsoft> getById(@PathVariable("id")int id){
+    public ResponseEntity<SoftHard> getById(@PathVariable("id")int id){
         if(!serviceHardSoft.existsById(id)){
             return new ResponseEntity(new Message("No existe el ID"), HttpStatus.BAD_REQUEST);
         }
         
-        Hardsoft hardSoft = serviceHardSoft.getOne(id).get();
+        SoftHard hardSoft = serviceHardSoft.getOne(id).get();
         return new ResponseEntity(hardSoft, HttpStatus.OK);
     }
     
@@ -52,7 +52,7 @@ public class HardsoftController {
             return new ResponseEntity(new Message("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
         
-        Hardsoft hardSoft = new Hardsoft(
+        SoftHard hardSoft = new SoftHard(
                 dtoHardSoft.getName(), dtoHardSoft.getPerc()
             );
         serviceHardSoft.save(hardSoft);
@@ -72,7 +72,7 @@ public class HardsoftController {
             return new ResponseEntity(new Message("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
         
-        Hardsoft hardSoft = serviceHardSoft.getOne(id).get();
+        SoftHard hardSoft = serviceHardSoft.getOne(id).get();
         
         hardSoft.setName(dtoHardSoft.getName());
         hardSoft.setPerc(dtoHardSoft.getPerc());
