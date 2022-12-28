@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Hardsoft {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     
