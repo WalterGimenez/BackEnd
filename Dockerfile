@@ -11,8 +11,8 @@
 FROM amazoncorretto:17-alpine-jdk
 MAINTAINER emaaristimuno
 #COPY target/WG-0.0.1-SNAPSHOT.jar /app.jar
-#ADD target/WG-0.0.1-SNAPSHOT.jar app.jar
-COPY target/WG-0.0.1-SNAPSHOT.jar app.jar
+ADD target/WG-0.0.1-SNAPSHOT.jar app.jar
+
 EXPOSE 8080
 #CMD ["java", "-jar", "target/my-app.jar"]
 ENTRYPOINT ["java", "-jar", "app.jar"]
