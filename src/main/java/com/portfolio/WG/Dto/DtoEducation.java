@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Getter @Setter
+/*@Getter @Setter*/
 public class DtoEducation {
      @NotBlank
     private String name;
@@ -24,6 +24,38 @@ public class DtoEducation {
         this.name = name;
         this.startend = startend;
         this.descrip = descrip;
+        this.link = link;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStartend() {
+        return startend;
+    }
+
+    public void setStartend(String startend) {
+        this.startend = startend;
+    }
+
+    public String getDescrip() {
+        return descrip;
+    }
+
+    public void setDescrip(String descrip) {
+        this.descrip = descrip;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
         this.link = link;
     }
     
